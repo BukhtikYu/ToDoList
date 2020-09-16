@@ -1,9 +1,8 @@
 import React from 'react';
-import ReactDom from 'react-dom';
 
-import AppHeader from './components/app-header';
-import SearchPanel from './components/search-panel';
-import TodoList from './components/todo-list';
+import AppHeader from './app-header';
+import SearchPanel from './search-panel';
+import TodoList from './todo-list';
 
 const App = () => {
 
@@ -22,4 +21,4 @@ const App = () => {
     );
   };
 
-ReactDom.render(<App />, document.getElementById('root') ) 
+export default App;

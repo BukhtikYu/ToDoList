@@ -1,0 +1,13 @@
+.done {
+    text-decoration: line-through
+}
+
+.todo-list-item.important .todo-list-item-label {
+    font-weight: bold;
+    color: rgb(124, 44, 44);
+}
+
+.important {
+    font-weight: bold;
+    color: rgb(124, 44, 44);
+}
