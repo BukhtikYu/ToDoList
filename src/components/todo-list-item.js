@@ -10,40 +10,56 @@ export default class TodoListItem extends React.Component {
 
     state = {
         done: false,
-        important: true
+        important: false
     };
     
+    //Вариант без возврата предыдущего состояния state.
+    /*onLabelClick = () => {
+        this.setState({
+            done:true
+        });*/
+    //Вариант с возвратом предыдущего состояния.
     onLabelClick = () => {
-        this.setState ({
-            done: true
+        this.setState (({done}) => {
+            return {
+                done: !done
+            };
+        });
+    };
+    
+    onImportantClick = () => {
+        this.setState (({important}) => {
+            return {
+                important: !important
+            };
         });
     };
         
    render() {
         const { label } = this.props  //используем деструктуризацию объекта
-        const { done, important } = this.state;   //используем деструктуризацию: получить значение done из state 
+        const { done, important } = this.state;   //используем деструктуризацию: получить значение done и important из state 
 
         let classNames = 'todo-list-item';
-
         if (done) {
             classNames += ' done';
         };
 
         if (important) {
-            classNames += 'important';
+            classNames += ' important';
         };
 
            
         return (
             <span className = { classNames }>
                 <span
-                    className = 'important'
+                    className ='todo-list-item-label'
                     onClick={ this.onLabelClick }>
                     { label }
                 </span>
     
                 <button type ="button" 
-                        className = "btn">
+                        className = "btn"
+                        onClick={this.onImportantClick}>
                     <i className ="fa fa-exclamation" /> 
                 </button>
     
