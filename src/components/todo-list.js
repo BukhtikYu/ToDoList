@@ -3,7 +3,7 @@ import React from 'react';
 import TodoListItem from './todo-list-item';
 import './todo-list.css'
 
-const TodoList = ({ todos }) => {
+const TodoList = ({ todos, onDeleted }) => {
 
     /*const elements = todos.map((item) => {
       return (
@@ -17,8 +17,13 @@ const TodoList = ({ todos }) => {
     //Взять каждое значение из объекта item и передать его в качестве аттрибута
 
      const elements = todos.map((item) => {
+       const {id, ... itemProps } = item;
       return (
-        <li key={item.id} className = "list-group-item" ><TodoListItem { ... item }/></li>
+        <li key={id} className = "list-group-item" >
+          <TodoListItem 
+            { ... itemProps }
+            onDeleted = {() => onDeleted(id)}/>
+        </li>  
       )
     });
 

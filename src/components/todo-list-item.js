@@ -36,7 +36,7 @@ export default class TodoListItem extends React.Component {
     };
         
    render() {
-        const { label } = this.props  //используем деструктуризацию объекта
+        const { label, onDeleted } = this.props  //используем деструктуризацию объекта
         const { done, important } = this.state;   //используем деструктуризацию: получить значение done и important из state 
 
         let classNames = 'todo-list-item';
@@ -64,7 +64,8 @@ export default class TodoListItem extends React.Component {
                 </button>
     
                 <button type ="button" 
-                        className = "btn">
+                        className = "btn"
+                        onClick = {onDeleted}>
                     <i className ="fa fa-trash-o" /> 
                 </button>
     
