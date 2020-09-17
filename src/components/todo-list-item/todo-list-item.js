@@ -1,8 +1,6 @@
 import React from 'react';
 
-import TodoList from './todo-list';
 import './todo-list-item.css';
-
 
 //компонент -класс
 
