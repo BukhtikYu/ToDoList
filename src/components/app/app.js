@@ -19,12 +19,13 @@ export default class App extends React.Component {
 
   deleteItem = (id) => {
     this.setState (( { todoData }) => {
-      const idx = todoData.findIndex ((el) => el.id === id );
+      const newArray = todoData.filter((el) => el.id !== id );
 
+      /*const idx = todoData.findIndex ((el) => el.id === id );
       const newArray = [
         ... todoData.slice(0, idx),  //before
         ... todoData.slice(idx +1)   //after
-      ];
+      ];*/
 
       return {
         todoData: newArray
